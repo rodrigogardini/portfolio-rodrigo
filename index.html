@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rodrigo Gardini · Social Media</title>
+<style>
+  :root{
+    --bg:#0e0e10;
+    --bg2:#151517;
+    --fg:#f2f1ed;
+    --muted:#9a9892;
+    --accent:#c9a24a;
+    --line:#2a2a2c;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--fg);
+    font-family:'Helvetica Neue', Arial, sans-serif;
+    line-height:1.6;
+  }
+  section{
+    max-width:900px;
+    margin:0 auto;
+    padding:110px 32px;
+    border-bottom:1px solid var(--line);
+  }
+  section:last-child{border-bottom:none;}
+
+  /* HERO */
+  .hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    max-width:900px;
+    padding:32px;
+  }
+  .hero .eyebrow{
+    color:var(--accent);
+    letter-spacing:3px;
+    text-transform:uppercase;
+    font-size:13px;
+    margin-bottom:24px;
+  }
+  .hero h1{
+    font-size:clamp(40px,7vw,72px);
+    font-weight:700;
+    line-height:1.05;
+    margin-bottom:20px;
+  }
+  .hero .sub{
+    font-size:20px;
+    color:var(--muted);
+    max-width:600px;
+  }
+  .hero .contact-line{
+    margin-top:48px;
+    font-size:14px;
+    color:var(--muted);
+  }
+  .hero .contact-line a{color:var(--fg);text-decoration:none;border-bottom:1px solid var(--accent);}
+
+  h2.section-title{
+    font-size:14px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:20px;
+  }
+  .big-statement{
+    font-size:clamp(24px,3.5vw,34px);
+    font-weight:500;
+    max-width:760px;
+    margin-bottom:20px;
+  }
+  p.body-text{
+    font-size:17px;
+    color:#d5d3cd;
+    max-width:680px;
+    margin-bottom:16px;
+  }
+  .quote{
+    font-size:22px;
+    font-style:italic;
+    color:var(--fg);
+    border-left:3px solid var(--accent);
+    padding-left:20px;
+    margin:28px 0;
+    max-width:640px;
+  }
+
+  /* CASE BLOCKS */
+  .badge{
+    display:inline-block;
+    font-size:12px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:var(--bg);
+    background:var(--accent);
+    padding:6px 14px;
+    border-radius:20px;
+    margin-bottom:24px;
+  }
+  .case-title{
+    font-size:clamp(28px,4vw,40px);
+    font-weight:700;
+    margin-bottom:24px;
+    max-width:760px;
+  }
+
+  .stat-hero{
+    font-size:clamp(56px,10vw,110px);
+    font-weight:800;
+    color:var(--accent);
+    line-height:1;
+    margin-top:40px;
+  }
+  .stat-hero-sub{
+    font-size:18px;
+    color:var(--muted);
+    margin-bottom:40px;
+  }
+  .stat-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    margin-bottom:32px;
+  }
+  .stat-item{
+    background:var(--bg2);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:22px 20px;
+  }
+  .stat-item .num{
+    font-size:26px;
+    font-weight:700;
+    color:var(--fg);
+    margin-bottom:4px;
+  }
+  .stat-item .label{
+    font-size:13px;
+    color:var(--muted);
+  }
+  .analysis{
+    font-size:15px;
+    color:var(--muted);
+    max-width:680px;
+    border-top:1px solid var(--line);
+    padding-top:20px;
+    margin-top:8px;
+  }
+
+  /* GALLERY PLACEHOLDER */
+  .gallery{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+    margin-top:32px;
+  }
+  .gallery-item{
+    aspect-ratio:4/5;
+    background:var(--bg2);
+    border:1px dashed var(--line);
+    border-radius:8px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--muted);
+    font-size:12px;
+    text-align:center;
+    padding:10px;
+    overflow:hidden;
+  }
+  .gallery-item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+
+  /* TABLE */
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:30px;
+    font-size:15px;
+  }
+  th,td{
+    text-align:left;
+    padding:14px 16px;
+    border-bottom:1px solid var(--line);
+  }
+  th{
+    color:var(--accent);
+    font-size:12px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    font-weight:600;
+  }
+  td{color:#d5d3cd;}
+  tr td:first-child, th:first-child{color:var(--fg);font-weight:600;}
+  .final-line{
+    margin-top:32px;
+    font-size:18px;
+    color:var(--fg);
+    max-width:680px;
+  }
+
+  /* CONTACT */
+  .contact-block{
+    text-align:left;
+  }
+  .contact-block h2.big{
+    font-size:clamp(36px,6vw,56px);
+    font-weight:700;
+    margin-bottom:20px;
+  }
+  .contact-list{
+    margin-top:32px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    font-size:17px;
+  }
+  .contact-list a{color:var(--fg);text-decoration:none;}
+  .contact-list a:hover{color:var(--accent);}
+  footer{
+    text-align:center;
+    padding:40px;
+    color:var(--muted);
+    font-size:13px;
+  }
+
+  @media(max-width:640px){
+    .stat-grid{grid-template-columns:1fr;}
+    .gallery{grid-template-columns:repeat(2,1fr);}
+    section{padding:70px 24px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="eyebrow">Portfólio · Social Media</div>
+  <h1>Rodrigo Gardini</h1>
+  <p class="sub">Social Media · Camboriú, SC — pensando estratégia antes de abrir o editor.</p>
+  <div class="contact-line">
+    (47) 9923-9942 · <a href="mailto:rodrigogardini2004@gmail.com">rodrigogardini2004@gmail.com</a> · @rodrigogardini
+  </div>
+</section>
+
+<!-- QUEM SOU EU -->
+<section>
+  <h2 class="section-title">Quem sou eu</h2>
+  <p class="body-text">Comecei digitalizando bordados no computador. 8 anos transformando imagens em pontos, calculando densidade de fio, entendendo como uma arte vira produto. Isso me ensinou a pensar em formato antes de pensar em estética — e foi exatamente isso que levei pro social media.</p>
+  <p class="body-text">Hoje gerencio comunicação pública pela Secretaria de Agricultura de Camboriú e construo canais de nicho do zero. Os dois ao mesmo tempo, com estratégias completamente diferentes, para públicos completamente diferentes.</p>
+  <p class="body-text">Não acho que todo post precisa ser bonito. Acho que precisa funcionar.</p>
+</section>
+
+<!-- CASE TIKTOK CONTEXTO -->
+<section>
+  <span class="badge">TikTok · Canal próprio</span>
+  <h2 class="case-title">JoJo's Bizarre Adventure em bordado computadorizado</h2>
+  <p class="body-text">Steel Ball Run foi anunciado. A comunidade de fãs de JoJo estava em ebulição esperando o anime — e eu percebi que ninguém estava usando esse hype pra mostrar bordado.</p>
+  <p class="body-text">A aposta foi simples: produzir um bordado novo de personagem por semana, filmar o processo com máquina industrial, e usar os gatilhos da comunidade (referências, memes, localizações reais como Floripa) como gancho de descoberta.</p>
+  <p class="body-text">A estratégia foi Hype + Craft: aproveitar o momento cultural do lançamento e ancorar o conteúdo numa habilidade técnica real. Fã de anime vê e compartilha. Bordadeiro vê e quer aprender. Os dois públicos juntos criaram um loop de distribuição orgânica.</p>
+
+  <div class="gallery">
+    <div class="gallery-item"><img src="images/tiktok-1.png" alt="Processo de digitalização do bordado"></div>
+    <div class="gallery-item"><img src="images/tiktok-2.png" alt="Bordado finalizado na máquina"></div>
+    <div class="gallery-item"><img src="images/tiktok-3.png" alt="Print do conteúdo no TikTok"></div>
+  </div>
+</section>
+
+<!-- CASE TIKTOK RESULTADOS -->
+<section>
+  <h2 class="section-title">Resultados</h2>
+  <div class="stat-hero">+4.900%</div>
+  <div class="stat-hero-sub">crescimento em visualizações — sem tráfego pago</div>
+
+  <div class="stat-grid">
+    <div class="stat-item"><div class="num">108.000</div><div class="label">visualizações totais</div></div>
+    <div class="stat-item"><div class="num">16.000</div><div class="label">curtidas</div></div>
+    <div class="stat-item"><div class="num">3.600</div><div class="label">compartilhamentos — 1 a cada 30 views</div></div>
+    <div class="stat-item"><div class="num">94%</div><div class="label">do tráfego pelo Para Você</div></div>
+    <div class="stat-item"><div class="num">596</div><div class="label">seguidores · público 18–24 anos (51,6%)</div></div>
+  </div>
+
+  <p class="analysis">A taxa de compartilhamento foi o dado mais importante. Significa que as pessoas não só assistiram — elas quiseram que os amigos vissem também. Esse comportamento não se compra com impulsionamento.</p>
+</section>
+
+<!-- CASE INSTAGRAM CONTEXTO -->
+<section>
+  <span class="badge">Instagram · Secretaria de Agricultura de Camboriú</span>
+  <h2 class="case-title">Comunicação pública com lógica de creator</h2>
+  <p class="body-text">Perfil institucional de secretaria municipal. Público diverso, sem verba de tráfego pago, sem identidade de conteúdo consolidada. O desafio era fazer um órgão público parecer relevante sem deixar de ser sério.</p>
+  <p class="body-text">A estratégia foi misturar três tipos de conteúdo: prestação de contas (obras, zeladoria, equipamentos), curiosidades locais (o que prende atenção de quem não segue) e datas temáticas com abordagem humana. O Reel entrou como motor de alcance — e o post mais bem-sucedido do período foi um vídeo de utilidade pública com 729 compartilhamentos.</p>
+  <p class="body-text">Resultado: o algoritmo tratou a página como descoberta, não como institucional.</p>
+
+  <div class="gallery">
+    <div class="gallery-item"><img src="images/agri-1.png" alt="Post da Secretaria de Agricultura"></div>
+    <div class="gallery-item"><img src="images/agri-2.jpg" alt="Post da Secretaria de Agricultura"></div>
+    <div class="gallery-item"><img src="images/agri-3.png" alt="Post da Secretaria de Agricultura"></div>
+  </div>
+</section>
+
+<!-- CASE INSTAGRAM RESULTADOS -->
+<section>
+  <h2 class="section-title">Resultados</h2>
+  <div class="stat-hero">32 mil</div>
+  <div class="stat-hero-sub">contas alcançadas organicamente em um trimestre</div>
+
+  <div class="stat-grid">
+    <div class="stat-item"><div class="num">270.600</div><div class="label">visualizações totais</div></div>
+    <div class="stat-item"><div class="num">87%</div><div class="label">de não-seguidores impactados</div></div>
+    <div class="stat-item"><div class="num">+100,4%</div><div class="label">de crescimento de seguidores</div></div>
+    <div class="stat-item"><div class="num">729</div><div class="label">compartilhamentos no Reel principal</div></div>
+    <div class="stat-item"><div class="num">8,5%</div><div class="label">taxa de unfollow — retenção altíssima</div></div>
+  </div>
+
+  <p class="analysis">Quando 87% do alcance vem de quem não te segue, o conteúdo está funcionando como vitrine, não como newsletter. Esse número define um perfil com potencial de crescimento acelerado.</p>
+</section>
+
+<!-- SÍNTESE -->
+<section>
+  <h2 class="section-title">Síntese geral</h2>
+  <div class="big-statement">Dois projetos. Duas lógicas. Um trimestre.</div>
+
+  <table>
+    <tr>
+      <th></th>
+      <th>TikTok — Canal próprio</th>
+      <th>Instagram — Secretaria</th>
+    </tr>
+    <tr><td>Nicho</td><td>Anime + Bordado</td><td>Comunicação pública</td></tr>
+    <tr><td>Estratégia</td><td>Hype + Craft</td><td>Prestação de contas + Discovery</td></tr>
+    <tr><td>Alcance</td><td>108 mil views</td><td>270 mil views</td></tr>
+    <tr><td>Crescimento</td><td>+4.900%</td><td>+100% em seguidores</td></tr>
+    <tr><td>Destaque</td><td>3.600 shares orgânicos</td><td>87% de não-seguidores</td></tr>
+  </table>
+
+  <p class="final-line">Formatos diferentes, algoritmos diferentes, públicos diferentes. A lógica por trás é a mesma: entender o que as pessoas já querem ver e chegar lá antes.</p>
+</section>
+
+<!-- CONTATO -->
+<section class="contact-block">
+  <h2 class="section-title">Contato</h2>
+  <h2 class="big">Vamos conversar.</h2>
+  <p class="body-text">Se você procura alguém que pensa estratégia antes de abrir o editor, me chama.</p>
+  <div class="contact-list">
+    <div>(47) 9923-9942</div>
+    <a href="mailto:rodrigogardini2004@gmail.com">rodrigogardini2004@gmail.com</a>
+    <a href="#">@rodrigogardini</a>
+  </div>
+</section>
+
+<footer>Rodrigo Gardini — Social Media</footer>
+
+</body>
+</html>
